@@ -48,7 +48,7 @@ To get a local copy up and running follow these simple steps:
 
 ## :eyes: Observation
 
-- This template is configured to avoit using `import React from 'react'`.
+- This template is configured to avoid using `import React from 'react'`.
 - It is only necessary to import the `ReactDOM` and hooks if necessary.
 
 ## :bust_in_silhouette: Author
