@@ -19,7 +19,7 @@ const prodConfig = {
   module: {
     rules: [
       {
-        test: /.(scss)$/,
+        test: /.(scss|sass|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           "css-loader",
@@ -40,7 +40,8 @@ const prodConfig = {
         extractComments: false,
       }),
     ]
-  }
+  },
+  devtool: "source-map"
 }
 
 module.exports = merge(base, prodConfig)

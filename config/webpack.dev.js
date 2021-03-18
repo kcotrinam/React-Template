@@ -1,5 +1,8 @@
 const base = require("./webpack.base");
 const { merge } = require("webpack-merge");
+const { HotModuleReplacementPlugin } = require("webpack");
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
 
 const devConfig = {
   mode: "development",
@@ -11,12 +14,12 @@ const devConfig = {
     port: 3000,
     contentBase: "../dist",
     open: true,
-    hot:true
+    hot: true
   },
   module: {
     rules: [
       {
-        test: /.(scss)$/,
+        test: /.(css|sass|scss)$/,
         use: [
           "style-loader",
           "css-loader",
@@ -25,7 +28,11 @@ const devConfig = {
       }
     ]
   },
-  
+  plugins: [
+    new HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin()
+  ],
+  devtool: "eval-source-map"
 }
 
 module.exports = merge(base, devConfig)
