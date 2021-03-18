@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
 
 
-
+/** @type {import('webpack').Configuration} */
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -12,13 +12,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './public/index.html'
     })
   ],
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
         use: "babel-loader"
       },
@@ -28,6 +28,8 @@ module.exports = {
       },
     ]
   },
-
+  resolve: {
+    extensions: [".js", ".jsx", ".json"]
+  },
   devtool: "source-map"
 }
